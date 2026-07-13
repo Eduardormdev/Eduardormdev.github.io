@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download — Eduardo Roberto Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .dl-page { max-width: 640px; margin: 0 auto; padding: 80px 24px 60px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; animation: fadeUp .6s ease both; }
+    .dl-icon { width: 80px; height: 80px; border-radius: 20px; background: rgba(52,211,153,.1); border: 2px solid rgba(52,211,153,.3); display: grid; place-items: center; font-size: 32px; color: var(--accent, #34d399); }
+    .dl-page h1 { font-size: 28px; font-weight: 700; margin: 0; }
+    .dl-page p { color: var(--muted, #8aa398); font-size: 15px; line-height: 1.65; max-width: 48ch; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; padding: 16px 36px; background: var(--accent, #34d399); color: #04120b; border: none; border-radius: 12px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 0 30px rgba(52,211,153,.35); transition: opacity .2s, transform .2s; text-decoration: none; }
+    .dl-btn:hover { opacity: .88; transform: translateY(-2px); color: #04120b; }
+    .dl-btn svg { flex-shrink: 0; }
+    .dl-info { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted, #8aa398); }
+    .dl-info span { display: flex; align-items: center; gap: 8px; justify-content: center; }
+    .dl-back { margin-top: 20px; color: var(--muted, #8aa398); font-size: 13.5px; }
+    .dl-back:hover { color: var(--accent, #34d399); }
+    .dl-files { margin-top: 20px; text-align: left; width: 100%; background: var(--panel, #0b100e); border: 1px solid var(--line, #17251f); border-radius: 14px; padding: 20px 24px; }
+    .dl-files-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .15em; color: var(--muted, #8aa398); margin-bottom: 12px; }
+    .dl-files ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .dl-files li { font-size: 13.5px; color: var(--muted, #8aa398); display: flex; align-items: center; gap: 10px; }
+    .dl-files li .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent, #34d399); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="dl-page">
+      <div class="dl-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <h1>Download <span class="accent">Source Code</span></h1>
+      <p>Complete portfolio source code ready for GitHub Pages deployment. Includes HTML, CSS, JavaScript, images, PDFs, and the Cloudflare Worker for email.</p>
+
+      <a href="assets/portfolio-src.zip" download class="dl-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        portfolio-src.zip
+      </a>
+
+      <div class="dl-info">
+        <span>ZIP ~440 KB</span>
+        <span>HTML + CSS + JS + Assets + Worker</span>
+      </div>
+
+      <div class="dl-files">
+        <div class="dl-files-title">INCLUDED FILES</div>
+        <ul>
+          <li><span class="dot"></span>index.html</li>
+          <li><span class="dot"></span>css/style.css</li>
+          <li><span class="dot"></span>js/main.js</li>
+          <li><span class="dot"></span>worker.js (Cloudflare + Resend)</li>
+          <li><span class="dot"></span>.nojekyll</li>
+          <li><span class="dot"></span>assets/foto-pb.jpg</li>
+          <li><span class="dot"></span>assets/foto-branca.jpg</li>
+          <li><span class="dot"></span>assets/Eduardo_Roberto_Curriculo_PT.pdf</li>
+          <li><span class="dot"></span>assets/Eduardo_Roberto_Resume_EN.pdf</li>
+          <li><span class="dot"></span>assets/recommendation-pt.pdf</li>
+          <li><span class="dot"></span>assets/recommendation-en.pdf</li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="dl-back">Back to portfolio</a>
+    </div>
+  </div>
+  <script>
+    // Apply saved theme
+    try {
+      var theme = localStorage.getItem('edu-portfolio-theme') || 'dark';
+      var dark = theme === 'dark';
+      var el = document.documentElement;
+      if (dark) {
+        el.style.setProperty('--bg','#060a09'); el.style.setProperty('--panel','#0b100e');
+        el.style.setProperty('--fg','#e8f2ec'); el.style.setProperty('--muted','#8aa398');
+        el.style.setProperty('--line','#17251f'); el.style.setProperty('--accent','#34d399');
+        el.style.setProperty('--navbg','rgba(6,10,9,.85)'); el.style.setProperty('--dot','rgba(52,211,153,.06)');
+      } else {
+        el.style.setProperty('--bg','#f4f8f5'); el.style.setProperty('--panel','#ffffff');
+        el.style.setProperty('--fg','#15211b'); el.style.setProperty('--muted','#57695f');
+        el.style.setProperty('--line','#dbe6de'); el.style.setProperty('--accent','#0e9f6e');
+        el.style.setProperty('--navbg','rgba(244,248,245,.88)'); el.style.setProperty('--dot','rgba(14,159,110,.08)');
+      }
+      document.body.style.background = dark ? '#060a09' : '#f4f8f5';
+    } catch(e) {}
+  </script>
+</body>
+</html>
