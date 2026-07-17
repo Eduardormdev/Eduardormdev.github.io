@@ -365,3 +365,147 @@
     aspect-ratio: 4 / 3;
   }
 }
+/* =========================================================
+   CORREÇÃO RESPONSIVA — IMAGENS DOS PROJETOS EM DESTAQUE
+   ========================================================= */
+
+/* Impede qualquer conteúdo do card de ultrapassar seus limites */
+.featured-project,
+.featured-project-card,
+.featured-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Área padronizada que contém a imagem */
+.featured-project-image,
+.featured-project-media,
+.featured-card-image {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: clamp(230px, 30vw, 390px);
+  overflow: hidden;
+  background: var(--panel, #0b100e);
+}
+
+/* Todas as imagens recebem exatamente o tamanho do container */
+.featured-project-image img,
+.featured-project-media img,
+.featured-card-image img,
+.featured-project > img,
+.featured-project-card > img,
+.featured-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+}
+
+/* Ajuste individual do enquadramento de cada projeto */
+img[src*="featured-rpg"],
+img[src*="rpg-tokens-forge-ai"] {
+  object-position: center;
+}
+
+img[src*="featured-artificial"],
+img[src*="mundo-artificial"] {
+  object-position: center top;
+}
+
+img[src*="featured-burger"],
+img[src*="dragon-burguer"] {
+  object-position: center top;
+}
+
+/* Caso o card seja uma grade com texto e imagem */
+.featured-project,
+.featured-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+  align-items: stretch;
+}
+
+/* Conteúdo textual também não pode forçar a largura */
+.featured-project-content,
+.featured-project-info,
+.featured-card-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Alternância visual de texto e imagem */
+.featured-project.reverse,
+.featured-project-card.reverse {
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 1fr);
+}
+
+.featured-project.reverse .featured-project-image,
+.featured-project-card.reverse .featured-project-image {
+  order: -1;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .featured-project,
+  .featured-project-card,
+  .featured-project.reverse,
+  .featured-project-card.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project-image,
+  .featured-project-media,
+  .featured-card-image {
+    width: 100%;
+    height: clamp(220px, 55vw, 360px);
+    order: initial !important;
+  }
+
+  .featured-project-image img,
+  .featured-project-media img,
+  .featured-card-image img,
+  .featured-project > img,
+  .featured-project-card > img,
+  .featured-card > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .featured-project,
+  .featured-project-card,
+  .featured-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .featured-project-image,
+  .featured-project-media,
+  .featured-card-image {
+    height: 220px;
+  }
+
+  .featured-project-content,
+  .featured-project-info,
+  .featured-card-content {
+    padding: 20px;
+  }
+}
+
+/* Celulares muito estreitos */
+@media (max-width: 380px) {
+  .featured-project-image,
+  .featured-project-media,
+  .featured-card-image {
+    height: 190px;
+  }
+}
