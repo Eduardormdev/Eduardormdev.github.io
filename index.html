@@ -7,12 +7,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portfolio-layout.css">
+  <style>
+    .toronto-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .toronto-card { background:var(--panel,#0b100e); border:1px solid var(--line,#17251f); border-radius:16px; padding:24px; display:flex; gap:16px; }
+    .extra-card-icon { width:40px; height:40px; flex:none; border-radius:10px; background:rgba(52,211,153,.12); display:grid; place-items:center; color:var(--accent,#34d399); }
+    .extra-card-title { font-weight:700; font-size:15.5px; margin-bottom:6px; }
+    .extra-card-text { font-size:13.5px; line-height:1.6; color:var(--muted,#8aa398); }
+    .interests-title { margin-bottom:10px; }
+    .interests-subtitle { margin:0 0 30px 18px; font-size:14px; color:var(--muted,#8aa398); }
+    .interests-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .interest-card { background:var(--panel,#0b100e); border:1px solid var(--line,#17251f); border-radius:16px; padding:26px; }
+    .interest-card .extra-card-icon { margin-bottom:14px; }
+    .interest-card .extra-card-title { margin-bottom:8px; }
+    @media (max-width: 800px) {
+      .toronto-grid, .interests-grid { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 <body>
-
 <div id="app">
-
-  <!-- ===== NAV ===== -->
   <header class="nav">
     <nav class="nav-inner">
       <a href="#hero" class="nav-logo"><span class="accent">&lt;</span>EduardoRM <span class="accent">/&gt;</span></a>
@@ -29,13 +43,9 @@
   </header>
 
   <main>
-
-    <!-- HERO -->
     <section id="hero" class="hero">
       <div id="heroBadge" class="hero-badge"><span class="dot"></span>Open to opportunities</div>
-      <div class="hero-avatar">
-        <img src="assets/foto-pb.jpg" alt="Eduardo Roberto">
-      </div>
+      <div class="hero-avatar"><img src="assets/foto-pb.jpg" alt="Eduardo Roberto"></div>
       <div id="heroGreeting" class="hero-subtitle">Hi, I'm</div>
       <h1>Eduardo Roberto</h1>
       <p id="heroRole" class="hero-role">Front-End / Full-Stack Developer</p>
@@ -50,9 +60,7 @@
         <a href="https://www.linkedin.com/in/eduardo-roberto-mendes-194a232a3/" target="_blank" title="LinkedIn" class="social-circle">in</a>
         <a href="mailto:eduardorm.dev@gmail.com" target="_blank" title="Email" class="social-circle">@</a>
       </div>
-      <div class="hero-tags">
-        <span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Node.js</span><span>Next.js</span>
-      </div>
+      <div class="hero-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Node.js</span><span>Next.js</span></div>
       <div class="code-block">
         <div class="code-bar">
           <span class="code-dot" style="background:#f87171"></span>
@@ -68,22 +76,15 @@
   status: <span class="str">"Open to opportunities"</span>
 };</pre>
       </div>
-      <div class="scroll-hint">
-        <span id="heroScrollText">SCROLL TO EXPLORE</span>
-        <div class="scroll-mouse"><span class="dot"></span></div>
-      </div>
+      <div class="scroll-hint"><span id="heroScrollText">SCROLL TO EXPLORE</span><div class="scroll-mouse"><span class="dot"></span></div></div>
     </section>
 
     <div class="divider"><span></span><span class="dot"></span><span></span></div>
 
-    <!-- ABOUT -->
     <section id="about" style="max-width:1160px;margin:0 auto;padding:56px 24px">
       <div class="section-title"><span class="bar"></span><h2 id="aboutTitle">About <span class="accent">Me</span></h2></div>
       <div class="about-grid">
-        <div class="about-card">
-          <img src="assets/foto-branca.jpg" alt="Eduardo Roberto">
-          <div><div class="name">Eduardo Roberto</div><div class="role">Front-End / Full-Stack Developer</div></div>
-        </div>
+        <div class="about-card"><img src="assets/foto-branca.jpg" alt="Eduardo Roberto"><div><div class="name">Eduardo Roberto</div><div class="role">Front-End / Full-Stack Developer</div></div></div>
         <div class="about-text">
           <p id="aboutP1">I'm a Front-End and Full-Stack Developer with over 3 years of hands-on experience creating and customizing websites and sales systems for e-commerce clients and small businesses. My core stack includes HTML, CSS, JavaScript, PHP, and C# (MVC), with strong proficiency in Bootstrap, Tailwind CSS, and React.</p>
           <p id="aboutP2">What sets me apart is my early adoption of AI-powered development tools like Claude AI, Lovable, and Ollama — integrating them into my daily workflow to build sites and systems faster without sacrificing quality. I also bring solid experience with CMS platforms (WordPress, Elementor, WooCommerce) and marketplace management (Magalu, Mercado Livre, Shopify).</p>
@@ -96,201 +97,195 @@
           <div class="stat-card"><div class="number">2</div><div class="label" id="statLangsLabel">Languages</div></div>
         </div>
       </div>
-      <div class="learning-bar">
-        <div class="label" id="learningTitle"><span class="icon">▹</span>Learning now</div>
-        <div style="flex:1"></div>
-        <div class="learning-tags">
-          <span class="learning-tag">Next.js</span>
-          <span class="learning-tag">TypeScript avançado</span>
-          <span class="learning-tag">Prisma ORM</span>
-          <span class="learning-tag">Docker básico</span>
-        </div>
-      </div>
+      <div class="learning-bar"><div class="label" id="learningTitle"><span class="icon">▹</span>Learning now</div><div style="flex:1"></div><div class="learning-tags"><span class="learning-tag">Next.js</span><span class="learning-tag">TypeScript avançado</span><span class="learning-tag">Prisma ORM</span><span class="learning-tag">Docker básico</span></div></div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience" style="max-width:1160px;margin:0 auto;padding:56px 24px">
       <div class="section-title"><span class="bar"></span><h2 id="expTitle">Professional <span class="accent">Experience</span></h2></div>
       <div class="timeline"></div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" style="max-width:1160px;margin:0 auto;padding:56px 24px">
       <div class="section-title"><span class="bar"></span><h2 id="skillsTitle">Technical <span class="accent">Skills</span></h2></div>
-      <div class="skills-panel">
-        <div class="skills-grid"></div>
-        <div class="skill-legend"></div>
-      </div>
+      <div class="skills-panel"><div class="skills-grid"></div><div class="skill-legend"></div></div>
       <div class="skill-categories"></div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" style="max-width:1160px;margin:0 auto;padding:56px 24px">
-      <div class="section-title"><span class="bar"></span><h2 id="projTitle">Projects & <span class="accent">Repositories</span></h2></div>
-      <p id="projSubtitle" style="margin:0 0 28px 18px;font-size:14px;color:var(--muted,#8aa398)">Some of my public repositories and projects on GitHub.</p>
+    <section id="toronto" style="max-width:1160px;margin:0 auto;padding:56px 24px">
+      <div class="section-title"><span class="bar"></span><h2 data-en-html="Why Hire Me <span class='accent'>in Toronto</span>" data-pt-html="Por que me contratar <span class='accent'>em Toronto</span>">Why Hire Me <span class="accent">in Toronto</span></h2></div>
+      <div class="toronto-grid">
+        <div class="toronto-card"><span class="extra-card-icon">✈</span><div><div class="extra-card-title" data-en="Relocating August 2026" data-pt="Mudança em agosto de 2026">Relocating August 2026</div><div class="extra-card-text" data-en="Actively moving to Toronto and seeking full-time front-end or full-stack development roles." data-pt="Mudança ativa para Toronto em busca de vagas full-time de desenvolvimento front-end ou full-stack.">Actively moving to Toronto and seeking full-time front-end or full-stack development roles.</div></div></div>
+        <div class="toronto-card"><span class="extra-card-icon">◷</span><div><div class="extra-card-title" data-en="Available immediately" data-pt="Disponibilidade imediata">Available immediately</div><div class="extra-card-text" data-en="Open to opportunities with flexibility for remote, hybrid, or on-site arrangements." data-pt="Aberto a oportunidades com flexibilidade para regimes remoto, híbrido ou presencial.">Open to opportunities with flexibility for remote, hybrid, or on-site arrangements.</div></div></div>
+        <div class="toronto-card"><span class="extra-card-icon">文</span><div><div class="extra-card-title" data-en="Modern Tech Stack" data-pt="Stack de tecnologia moderno">Modern Tech Stack</div><div class="extra-card-text" data-en="Experienced with React, TypeScript, Tailwind CSS, and AI-assisted development workflows." data-pt="Experiência com React, TypeScript, Tailwind CSS e fluxos de desenvolvimento assistidos por IA.">Experienced with React, TypeScript, Tailwind CSS, and AI-assisted development workflows.</div></div></div>
+        <div class="toronto-card"><span class="extra-card-icon">✦</span><div><div class="extra-card-title" data-en="Bilingual Professional" data-pt="Profissional bilíngue">Bilingual Professional</div><div class="extra-card-text" data-en="Portuguese native with intermediate/advanced English — ready for international teams." data-pt="Português nativo com inglês intermediário/avançado — pronto para times internacionais.">Portuguese native with intermediate/advanced English — ready for international teams.</div></div></div>
+      </div>
+    </section>
+
+    <section id="interests" style="max-width:1160px;margin:0 auto;padding:56px 24px">
+      <div class="section-title interests-title"><span class="bar"></span><h2 data-en-html="Interests <span class='accent'>&amp; Passions</span>" data-pt-html="Interesses <span class='accent'>&amp; Paixões</span>">Interests <span class="accent">&amp; Passions</span></h2></div>
+      <p class="interests-subtitle" data-en="Beyond code, here's what drives me" data-pt="Além do código, é isso que me move">Beyond code, here's what drives me</p>
+      <div class="interests-grid">
+        <div class="interest-card"><span class="extra-card-icon">⚄</span><div class="extra-card-title" data-en="RPG &amp; Board Games" data-pt="RPG &amp; Jogos de tabuleiro">RPG &amp; Board Games</div><div class="extra-card-text" data-en="From D&amp;D campaigns to strategic board games — I love immersive storytelling and creative problem-solving." data-pt="De campanhas de D&amp;D a jogos estratégicos — amo narrativas imersivas e resolução criativa de problemas.">From D&amp;D campaigns to strategic board games — I love immersive storytelling and creative problem-solving.</div></div>
+        <div class="interest-card"><span class="extra-card-icon">✦</span><div class="extra-card-title" data-en="AI &amp; Technology" data-pt="IA &amp; Tecnologia">AI &amp; Technology</div><div class="extra-card-text" data-en="Exploring the latest AI tools, LLMs, and how they can enhance development workflows and creative projects." data-pt="Explorando as ferramentas de IA e LLMs mais recentes, e como elas potencializam fluxos de desenvolvimento e projetos criativos.">Exploring the latest AI tools, LLMs, and how they can enhance development workflows and creative projects.</div></div>
+        <div class="interest-card"><span class="extra-card-icon">▤</span><div class="extra-card-title" data-en="Movies &amp; Series" data-pt="Filmes &amp; Séries">Movies &amp; Series</div><div class="extra-card-text" data-en="From sci-fi epics to indie films — I love stories in any format. My go-to for unwinding and finding creative inspiration." data-pt="De épicos sci-fi a filmes indie — amo histórias em qualquer formato; meu jeito de relaxar e achar inspiração criativa.">From sci-fi epics to indie films — I love stories in any format. My go-to for unwinding and finding creative inspiration.</div></div>
+        <div class="interest-card"><span class="extra-card-icon">✈</span><div class="extra-card-title" data-en="Travel &amp; Culture" data-pt="Viagens &amp; Cultura">Travel &amp; Culture</div><div class="extra-card-text" data-en="Moving from Brazil to Canada is just the beginning — I'm excited to explore new cultures and perspectives." data-pt="Mudar do Brasil para o Canadá é só o começo — estou animado para explorar novas culturas e perspectivas.">Moving from Brazil to Canada is just the beginning — I'm excited to explore new cultures and perspectives.</div></div>
+        <div class="interest-card"><span class="extra-card-icon">◍</span><div class="extra-card-title" data-en="Coffee &amp; Cooking" data-pt="Café &amp; Cozinha">Coffee &amp; Cooking</div><div class="extra-card-text" data-en="The perfect combo for a developer's life. I enjoy experimenting with new recipes and coffee brewing methods." data-pt="O combo perfeito para a vida de dev. Gosto de experimentar novas receitas e métodos de preparo de café.">The perfect combo for a developer's life. I enjoy experimenting with new recipes and coffee brewing methods.</div></div>
+        <div class="interest-card"><span class="extra-card-icon">▶</span><div class="extra-card-title" data-en="Video Games &amp; Exploration" data-pt="Video Games &amp; Exploração">Video Games &amp; Exploration</div><div class="extra-card-text" data-en="From open-world RPGs to indie gems — I love getting lost in virtual worlds and discovering every hidden corner. A naturally curious mind that loves to explore." data-pt="De RPGs de mundo aberto a jogos indie — amo me perder em mundos virtuais e descobrir cada canto escondido. Uma mente curiosa que adora explorar.">From open-world RPGs to indie gems — I love getting lost in virtual worlds and discovering every hidden corner. A naturally curious mind that loves to explore.</div></div>
+      </div>
+    </section>
+
+
+    <section id="featured-projects" class="portfolio-section featured-projects">
+      <div class="section-title">
+        <span class="bar"></span>
+        <h2 data-en-html="Featured <span class='accent'>Projects</span>" data-pt-html="Projetos <span class='accent'>em destaque</span>">
+          Featured <span class="accent">Projects</span>
+        </h2>
+      </div>
+
+      <div class="featured-projects-list">
+        <article class="featured-project-card">
+          <img src="assets/featured-rpg.png" alt="RPG Tokens Forge AI" class="featured-project-image">
+          <div class="featured-project-content">
+            <div class="featured-project-kicker">AI • RPG • SaaS</div>
+            <h3>RPG Tokens Forge AI</h3>
+            <p data-en="An AI-powered platform for generating customized RPG tokens and visual assets for tabletop campaigns."
+               data-pt="Plataforma com inteligência artificial para gerar tokens personalizados e recursos visuais para campanhas de RPG.">
+              An AI-powered platform for generating customized RPG tokens and visual assets for tabletop campaigns.
+            </p>
+            <div class="featured-project-tags">
+              <span>React</span><span>TypeScript</span><span>AI</span><span>Tailwind CSS</span>
+            </div>
+            <a href="https://rpgtokensforgeai.com" target="_blank" class="featured-project-button"
+               data-en="View project ↗" data-pt="Ver projeto ↗">View project ↗</a>
+          </div>
+        </article>
+
+        <article class="featured-project-card featured-project-card-reverse">
+          <img src="assets/featured-artificial.png" alt="Mundo Artificial" class="featured-project-image">
+          <div class="featured-project-content">
+            <div class="featured-project-kicker">CONTENT • AI • EDUCATION</div>
+            <h3>Mundo Artificial</h3>
+            <p data-en="A digital initiative focused on artificial intelligence, emerging technologies, educational content, and practical experimentation."
+               data-pt="Iniciativa digital focada em inteligência artificial, tecnologias emergentes, conteúdo educacional e experimentação prática.">
+              A digital initiative focused on artificial intelligence, emerging technologies, educational content, and practical experimentation.
+            </p>
+            <div class="featured-project-tags">
+              <span>AI</span><span>Content</span><span>Automation</span><span>Research</span>
+            </div>
+            <a href="https://github.com/Eduardormdev" target="_blank" class="featured-project-button"
+               data-en="Explore work ↗" data-pt="Explorar trabalho ↗">Explore work ↗</a>
+          </div>
+        </article>
+
+        <article class="featured-project-card">
+          <img src="assets/featured-burger.png" alt="Dragon Burguer" class="featured-project-image">
+          <div class="featured-project-content">
+            <div class="featured-project-kicker">BUSINESS • E-COMMERCE • OPERATIONS</div>
+            <h3>Dragon Burguer</h3>
+            <p data-en="A complete small-business operation combining digital presence, menu management, marketplace integration, marketing, and customer service."
+               data-pt="Operação completa de pequeno negócio combinando presença digital, gestão de cardápio, integração com marketplace, marketing e atendimento.">
+              A complete small-business operation combining digital presence, menu management, marketplace integration, marketing, and customer service.
+            </p>
+            <div class="featured-project-tags">
+              <span>Business</span><span>iFood</span><span>Marketing</span><span>Operations</span>
+            </div>
+            <a href="#experience" class="featured-project-button"
+               data-en="See experience ↓" data-pt="Ver experiência ↓">See experience ↓</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="portfolio-section repositories-section">
+      <div class="section-title">
+        <span class="bar"></span>
+        <h2 id="projTitle">GitHub &amp; <span class="accent">Repositories</span></h2>
+      </div>
+      <p id="projSubtitle" class="section-subtitle">Some of my public repositories and projects on GitHub.</p>
       <div class="filter-bar"></div>
       <div class="projects-grid"></div>
     </section>
 
-    <!-- RECOMMENDATION -->
     <section style="max-width:900px;margin:0 auto;padding:56px 24px">
       <div class="section-title"><span class="bar"></span><h2 id="recTitle">Recommendations</h2></div>
       <p id="recSubtitle" style="margin:0 0 30px 18px;font-size:14px;color:var(--muted,#8aa398)">Professional recommendation from a partner and collaborator I worked with.</p>
       <div class="rec-card">
-        <div class="rec-header">
-          <span class="rec-icon">❝</span>
-          <div><div id="recName" class="name">Recommendation — Igor Pereira Alves</div><div id="recRole" class="role">Igor Ia Tecex / Mundo Artificial</div></div>
-        </div>
+        <div class="rec-header"><span class="rec-icon">❝</span><div><div id="recName" class="name">Recommendation — Igor Pereira Alves</div><div id="recRole" class="role">Igor Ia Tecex / Mundo Artificial</div></div></div>
         <blockquote id="recQuote" class="rec-quote">I recommend Eduardo Roberto without reservation for front-end or full-stack development positions, and I have full confidence in both his technical ability and professional conduct. During our collaboration, Eduardo demonstrated exceptional dedication, delivering high-quality work with attention to detail and proactive problem-solving. His ability to integrate AI tools into the development workflow sets him apart as a modern and visionary developer.</blockquote>
-        <div class="rec-footer">
-          <span class="rec-avatar">IP</span>
-          <div><div id="recPersonName" class="name">Igor Pereira Alves</div><div id="recPersonRole" class="role">CEO — Igor Ia Tecex Soluções em Tecnologia LTDA</div></div>
-          <div style="flex:1"></div>
-          <a href="assets/recommendation-pt.pdf" target="_blank" id="recBtnPT" class="rec-btn rec-btn-primary">↓ Português</a>
-          <a href="assets/recommendation-en.pdf" target="_blank" id="recBtnEN" class="rec-btn rec-btn-secondary">↓ English</a>
-        </div>
+        <div class="rec-footer"><span class="rec-avatar">IP</span><div><div id="recPersonName" class="name">Igor Pereira Alves</div><div id="recPersonRole" class="role">CEO — Igor Ia Tecex Soluções em Tecnologia LTDA</div></div><div style="flex:1"></div><a href="assets/recommendation-pt.pdf" target="_blank" id="recBtnPT" class="rec-btn rec-btn-primary">↓ Português</a><a href="assets/recommendation-en.pdf" target="_blank" id="recBtnEN" class="rec-btn rec-btn-secondary">↓ English</a></div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
     <section id="education" style="max-width:1160px;margin:0 auto;padding:56px 24px">
       <div class="section-title"><span class="bar"></span><h2 id="eduTitle">Education</h2></div>
       <div class="education-list">
-        <div class="edu-card highlight">
-          <span class="edu-icon">🎓</span>
-          <div class="edu-content">
-            <div id="edu1Title" class="edu-title">Bachelor of Information Systems</div>
-            <div id="edu1Inst" class="edu-institution">Anhanguera (formerly: Uni-FACEF)</div>
-            <div id="edu1Desc" class="edu-desc">Comprehensive studies in software engineering, databases, web development, and systems architecture.</div>
-            <div class="edu-progress">
-              <div class="edu-progress-header"><span id="edu1Progress">Progress</span><span style="font-family:'JetBrains Mono',monospace;color:var(--accent,#34d399)">~80%</span></div>
-              <div class="edu-progress-bar"><div class="edu-progress-fill" style="width:80%"></div></div>
-            </div>
-          </div>
-          <span id="edu1Date" class="edu-date">01/2021 — 12/2026 (expected)</span>
-        </div>
-        <div class="edu-card">
-          <span class="edu-icon">🎓</span>
-          <div class="edu-content">
-            <div id="edu2Title" class="edu-title">Computer Hardware Technical Course</div>
-            <div id="edu2Inst" class="edu-institution">Remington — Franca, SP</div>
-            <div id="edu2Desc" class="edu-desc">Assembly, repair and maintenance of computers, monitors, printers, cell phones and peripherals.</div>
-          </div>
-          <span id="edu2Date" class="edu-date">09/2019 — 12/2021</span>
-        </div>
-        <div class="edu-card">
-          <span class="edu-icon">🎓</span>
-          <div class="edu-content">
-            <div id="edu3Title" class="edu-title">High School</div>
-            <div id="edu3Inst" class="edu-institution">João Marciano de Almeida — São Paulo</div>
-          </div>
-          <span id="edu3Date" class="edu-date">Completed in 12/2020</span>
-        </div>
+        <div class="edu-card highlight"><span class="edu-icon">🎓</span><div class="edu-content"><div id="edu1Title" class="edu-title">Bachelor of Information Systems</div><div id="edu1Inst" class="edu-institution">Anhanguera (formerly: Uni-FACEF)</div><div id="edu1Desc" class="edu-desc">Comprehensive studies in software engineering, databases, web development, and systems architecture.</div><div class="edu-progress"><div class="edu-progress-header"><span id="edu1Progress">Progress</span><span style="font-family:'JetBrains Mono',monospace;color:var(--accent,#34d399)">~80%</span></div><div class="edu-progress-bar"><div class="edu-progress-fill" style="width:80%"></div></div></div></div><span id="edu1Date" class="edu-date">01/2021 — 12/2026 (expected)</span></div>
+        <div class="edu-card"><span class="edu-icon">🎓</span><div class="edu-content"><div id="edu2Title" class="edu-title">Computer Hardware Technical Course</div><div id="edu2Inst" class="edu-institution">Remington — Franca, SP</div><div id="edu2Desc" class="edu-desc">Assembly, repair and maintenance of computers, monitors, printers, cell phones and peripherals.</div></div><span id="edu2Date" class="edu-date">09/2019 — 12/2021</span></div>
+        <div class="edu-card"><span class="edu-icon">🎓</span><div class="edu-content"><div id="edu3Title" class="edu-title">High School</div><div id="edu3Inst" class="edu-institution">João Marciano de Almeida — São Paulo</div></div><span id="edu3Date" class="edu-date">Completed in 12/2020</span></div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" style="max-width:1160px;margin:0 auto;padding:56px 24px 72px">
       <div class="section-title"><span class="bar"></span><h2 id="contactTitle">Get in <span class="accent">Touch</span></h2></div>
       <p id="contactSubtitle" style="margin:0 0 34px 18px;font-size:14px;color:var(--muted,#8aa398);max-width:60ch">I'm open to opportunities in Toronto, Canada. If you have a question, a project idea, or just want to connect — reach out!</p>
       <div class="contact-grid">
         <div class="contact-info">
-          <div class="contact-item">
-            <span class="contact-icon">✉</span>
-            <div><div id="labelEmail" class="contact-label">E-MAIL</div><div class="contact-value"><a href="mailto:eduardorm.dev@gmail.com" target="_blank">eduardorm.dev@gmail.com</a></div></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M9 8.5c.3-.7 1.1-.6 1.4 0l.5 1c.15.3.1.65-.12.9l-.4.45c.5 1.1 1.35 1.95 2.45 2.45l.45-.4c.25-.22.6-.27.9-.12l1 .5c.6.3.7 1.1 0 1.4-.55.25-1.2.35-1.85.2-2.2-.5-3.95-2.25-4.45-4.45-.15-.65-.05-1.3.12-1.93Z" fill="currentColor"></path></svg></span>
-            <div><div id="labelWhatsapp" class="contact-label">WHATSAPP</div><div class="contact-value"><a href="https://wa.me/5516993503223" target="_blank">+55 (16) 99350-3223</a></div></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">◎</span>
-            <div><div id="labelLocation" class="contact-label">LOCATION</div><div id="locationText" class="contact-value">Franca, SP, Brazil → Toronto, Canada</div></div>
-          </div>
+          <div class="contact-item"><span class="contact-icon">✉</span><div><div id="labelEmail" class="contact-label">E-MAIL</div><div class="contact-value"><a href="mailto:eduardorm.dev@gmail.com" target="_blank">eduardorm.dev@gmail.com</a></div></div></div>
+          <div class="contact-item"><span class="contact-icon">☎</span><div><div id="labelWhatsapp" class="contact-label">WHATSAPP</div><div class="contact-value"><a href="https://wa.me/5516993503223" target="_blank">+55 (16) 99350-3223</a></div></div></div>
+          <div class="contact-item"><span class="contact-icon">◎</span><div><div id="labelLocation" class="contact-label">LOCATION</div><div id="locationText" class="contact-value">Franca, SP, Brazil → Toronto, Canada</div></div></div>
           <div class="contact-divider"></div>
           <div id="shortcutsTitle" class="shortcuts-title">KEYBOARD SHORTCUTS</div>
-          <div class="shortcut-list">
-            <div class="shortcut"><kbd>1–6</kbd><span id="shortcutNavText">Navigate between sections</span></div>
-            <div class="shortcut"><kbd>H</kbd><span id="shortcutTopText">Back to top</span></div>
-            <div class="shortcut"><kbd>T</kbd><span id="shortcutThemeText">Toggle theme</span></div>
-            <div class="shortcut"><kbd>L</kbd><span id="shortcutLangText">Toggle language</span></div>
-          </div>
-          <div class="contact-socials">
-            <a href="https://github.com/Eduardormdev" target="_blank" class="social-square">gh</a>
-            <a href="https://www.linkedin.com/in/eduardo-roberto-mendes-194a232a3/" target="_blank" class="social-square">in</a>
-            <a href="https://rpgtokensforgeai.com" target="_blank" class="social-square">↗</a>
-          </div>
+          <div class="shortcut-list"><div class="shortcut"><kbd>1–6</kbd><span id="shortcutNavText">Navigate between sections</span></div><div class="shortcut"><kbd>H</kbd><span id="shortcutTopText">Back to top</span></div><div class="shortcut"><kbd>T</kbd><span id="shortcutThemeText">Toggle theme</span></div><div class="shortcut"><kbd>L</kbd><span id="shortcutLangText">Toggle language</span></div></div>
+          <div class="contact-socials"><a href="https://github.com/Eduardormdev" target="_blank" class="social-square">gh</a><a href="https://www.linkedin.com/in/eduardo-roberto-mendes-194a232a3/" target="_blank" class="social-square">in</a><a href="https://rpgtokensforgeai.com" target="_blank" class="social-square">↗</a></div>
           <a id="vcardBtn" href="#" download="Eduardo_Roberto.vcf" class="vcard-btn">↓ Download vCard</a>
         </div>
         <div class="contact-form">
-          <div class="form-row">
-            <input id="formName" type="text" class="form-input" placeholder="Your name">
-            <input id="formEmail" type="email" class="form-input" placeholder="Your email">
-          </div>
-          <select id="formSubject" class="form-input">
-            <option value="">Subject…</option>
-            <option value="Job offer">Job offer</option>
-            <option value="Interview invitation">Interview invitation</option>
-            <option value="Freelance project">Freelance project</option>
-            <option value="Partnership / Collaboration">Partnership / Collaboration</option>
-            <option value="Question">Question</option>
-            <option value="Other">Other</option>
-          </select>
-          <textarea id="formMessage" class="form-input" rows="6" placeholder="Your message"></textarea>
-          <button id="sendBtn" class="btn-send">➤ Send message</button>
-          <div id="formNote" class="form-note">Your message goes straight to Eduardo's inbox.</div>
+          <div class="form-row"><input id="formName" type="text" class="form-input" placeholder="Your name"><input id="formEmail" type="email" class="form-input" placeholder="Your email"></div>
+          <select id="formSubject" class="form-input"><option value="">Subject…</option><option value="Job offer">Job offer</option><option value="Interview invitation">Interview invitation</option><option value="Freelance project">Freelance project</option><option value="Partnership / Collaboration">Partnership / Collaboration</option><option value="Question">Question</option><option value="Other">Other</option></select>
+          <textarea id="formMessage" class="form-input" rows="6" placeholder="Your message"></textarea><button id="sendBtn" class="btn-send">➤ Send message</button><div id="formNote" class="form-note">Your message goes straight to Eduardo's inbox.</div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-cta">
-      <div><div id="footerCtaTitle" class="title">Let's work together</div><div id="footerCtaSub" class="subtitle">Have a project in mind? I'd love to hear about it.</div></div>
-      <div style="flex:1"></div>
-      <a href="#contact" id="footerCtaBtn" class="btn-primary">✉ Get in touch</a>
-    </div>
+    <div class="footer-cta"><div><div id="footerCtaTitle" class="title">Let's work together</div><div id="footerCtaSub" class="subtitle">Have a project in mind? I'd love to hear about it.</div></div><div style="flex:1"></div><a href="#contact" id="footerCtaBtn" class="btn-primary">✉ Get in touch</a></div>
     <div class="footer-links">
-      <div>
-        <div class="nav-logo"><span class="accent">&lt;</span>EduardoRM <span class="accent">/&gt;</span></div>
-        <p id="footerDesc" style="margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted,#8aa398);max-width:34ch">Front-End / Full-Stack Developer building modern web experiences with AI tools.</p>
-        <a href="download.html" id="downloadZipBtn" class="footer-download-btn">↓ Download source code (ZIP)</a>
-      </div>
-      <div>
-        <div id="footerQuickTitle" class="footer-col-title">QUICK LINKS</div>
-        <div class="footer-col-links">
-          <a href="#experience" id="footerLink1">Experience</a>
-          <a href="#projects" id="footerLink2">Projects</a>
-          <a href="#contact" id="footerLink3">Contact</a>
-        </div>
-      </div>
-      <div>
-        <div id="footerConnectTitle" class="footer-col-title">CONNECT</div>
-        <div class="footer-col-links">
-          <a href="mailto:eduardorm.dev@gmail.com" target="_blank">eduardorm.dev@gmail.com</a>
-          <a href="https://github.com/Eduardormdev" target="_blank">GitHub</a>
-          <a href="https://rpgtokensforgeai.com" target="_blank">RPG Tokens Forge AI</a>
-        </div>
-      </div>
+      <div><div class="nav-logo"><span class="accent">&lt;</span>EduardoRM <span class="accent">/&gt;</span></div><p id="footerDesc" style="margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted,#8aa398);max-width:34ch">Front-End / Full-Stack Developer building modern web experiences with AI tools.</p><a href="download.html" id="downloadZipBtn" class="footer-download-btn">↓ Download source code (ZIP)</a></div>
+      <div><div id="footerQuickTitle" class="footer-col-title">QUICK LINKS</div><div class="footer-col-links"><a href="#experience" id="footerLink1">Experience</a><a href="#projects" id="footerLink2">Projects</a><a href="#contact" id="footerLink3">Contact</a></div></div>
+      <div><div id="footerConnectTitle" class="footer-col-title">CONNECT</div><div class="footer-col-links"><a href="mailto:eduardorm.dev@gmail.com" target="_blank">eduardorm.dev@gmail.com</a><a href="https://github.com/Eduardormdev" target="_blank">GitHub</a><a href="https://rpgtokensforgeai.com" target="_blank">RPG Tokens Forge AI</a></div></div>
     </div>
-    <div class="footer-bottom">
-      <span id="copyright">© 2026 Eduardo Roberto. All rights reserved.</span>
-      <span class="footer-tag">React</span>
-      <span class="footer-tag">Claude AI</span>
-    </div>
+    <div class="footer-bottom"><span id="copyright">© 2026 Eduardo Roberto. All rights reserved.</span><span class="footer-tag">React</span><span class="footer-tag">Claude AI</span></div>
   </footer>
 
-  <!-- FLOATING BUTTONS -->
   <a id="floatResume" href="assets/Eduardo_Roberto_Resume_EN.pdf" download class="float-resume">▤ Resume (PDF)</a>
   <button id="scrollTopBtn" class="btn-top" title="Top">↑</button>
-  <a href="https://wa.me/5516993503223" target="_blank" title="WhatsApp" class="btn-whatsapp">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"></path><path d="M9 8.5c.3-.7 1.1-.6 1.4 0l.5 1c.15.3.1.65-.12.9l-.4.45c.5 1.1 1.35 1.95 2.45 2.45l.45-.4c.25-.22.6-.27.9-.12l1 .5c.6.3.7 1.1 0 1.4-.55.25-1.2.35-1.85.2-2.2-.5-3.95-2.25-4.45-4.45-.15-.65-.05-1.3.12-1.93Z" fill="#fff"></path></svg>
-  </a>
-
+  <a href="https://wa.me/5516993503223" target="_blank" title="WhatsApp" class="btn-whatsapp">☎</a>
 </div>
 
 <script src="js/main.js"></script>
+<script>
+  (function () {
+    function syncExtraSections() {
+      const lang = document.getElementById('btnPT')?.classList.contains('active') ? 'pt' : 'en';
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.querySelectorAll('[data-en][data-pt]').forEach(function (element) {
+        element.innerHTML = element.getAttribute('data-' + lang);
+      });
+      document.querySelectorAll('[data-en-html][data-pt-html]').forEach(function (element) {
+        element.innerHTML = element.getAttribute('data-' + lang + '-html');
+      });
+    }
+    const ptButton = document.getElementById('btnPT');
+    const enButton = document.getElementById('btnEN');
+    ptButton?.addEventListener('click', function () { setTimeout(syncExtraSections); });
+    enButton?.addEventListener('click', function () { setTimeout(syncExtraSections); });
+    const observer = new MutationObserver(syncExtraSections);
+    if (ptButton) observer.observe(ptButton, { attributes: true, attributeFilter: ['class'] });
+    if (enButton) observer.observe(enButton, { attributes: true, attributeFilter: ['class'] });
+    syncExtraSections();
+  })();
+</script>
 </body>
 </html>
