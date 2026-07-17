@@ -8,22 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/portfolio-layout.css">
-  <style>
-    .toronto-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    .toronto-card { background:var(--panel,#0b100e); border:1px solid var(--line,#17251f); border-radius:16px; padding:24px; display:flex; gap:16px; }
-    .extra-card-icon { width:40px; height:40px; flex:none; border-radius:10px; background:rgba(52,211,153,.12); display:grid; place-items:center; color:var(--accent,#34d399); }
-    .extra-card-title { font-weight:700; font-size:15.5px; margin-bottom:6px; }
-    .extra-card-text { font-size:13.5px; line-height:1.6; color:var(--muted,#8aa398); }
-    .interests-title { margin-bottom:10px; }
-    .interests-subtitle { margin:0 0 30px 18px; font-size:14px; color:var(--muted,#8aa398); }
-    .interests-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .interest-card { background:var(--panel,#0b100e); border:1px solid var(--line,#17251f); border-radius:16px; padding:26px; }
-    .interest-card .extra-card-icon { margin-bottom:14px; }
-    .interest-card .extra-card-title { margin-bottom:8px; }
-    @media (max-width: 800px) {
-      .toronto-grid, .interests-grid { grid-template-columns:1fr; }
-    }
-  </style>
 </head>
 <body>
 <div id="app">
@@ -145,7 +129,9 @@
 
       <div class="featured-projects-list">
         <article class="featured-project-card">
-          <img src="assets/featured-rpg.png" alt="RPG Tokens Forge AI" class="featured-project-image">
+          <div class="featured-project-media">
+            <img src="assets/featured-rpg.png" alt="RPG Tokens Forge AI" class="featured-project-image" width="1200" height="675" loading="lazy">
+          </div>
           <div class="featured-project-content">
             <div class="featured-project-kicker">AI • RPG • SaaS</div>
             <h3>RPG Tokens Forge AI</h3>
@@ -162,7 +148,9 @@
         </article>
 
         <article class="featured-project-card featured-project-card-reverse">
-          <img src="assets/featured-artificial.png" alt="Mundo Artificial" class="featured-project-image">
+          <div class="featured-project-media">
+            <img src="assets/featured-artificial.png" alt="Mundo Artificial" class="featured-project-image" width="1280" height="720" loading="lazy">
+          </div>
           <div class="featured-project-content">
             <div class="featured-project-kicker">CONTENT • AI • EDUCATION</div>
             <h3>Mundo Artificial</h3>
@@ -179,7 +167,9 @@
         </article>
 
         <article class="featured-project-card">
-          <img src="assets/featured-burger.png" alt="Dragon Burguer" class="featured-project-image">
+          <div class="featured-project-media">
+            <img src="assets/featured-burger.png" alt="Dragon Burguer" class="featured-project-image" width="1200" height="675" loading="lazy">
+          </div>
           <div class="featured-project-content">
             <div class="featured-project-kicker">BUSINESS • E-COMMERCE • OPERATIONS</div>
             <h3>Dragon Burguer</h3>
